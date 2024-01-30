@@ -34,12 +34,13 @@ const Paper = props => {
             </div>
         )
     }
-
+    let maxLength = 300;  
     return (
     <div class='rel_paper'>
         <div class="rel_score">{p.weight.toFixed(2)}</div>
         <div class='rel_title'><a href={'http://arxiv.org/abs/' + p.id}>{p.title}</a></div>
-        <div class='rel_authors'>{p.authors}</div>
+        {/* <div class='rel_authors'>{p.authors.substring(0, 300)}</div> */}
+        <div class='rel_authors'>{p.authors.length>maxLength ? p.authors.substring(0, maxLength) + "..." : p.authors}</div>
         <div class="rel_time">{p.time}</div>
         <div class='rel_tags'>{p.tags}</div>
         {utag_controls}
